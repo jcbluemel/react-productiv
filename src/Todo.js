@@ -8,12 +8,12 @@ import React from "react";
  * { EditableTodo, TopTodo } -> Todo
  **/
 
-function Todo() {
+function Todo({ todo }) {
   return (
-      <div className="Todo">
-        <div><b>Title</b> <small>(priority: 1)</small></div>
-        <div><small>Description.</small></div>
-      </div>
+    <div className="Todo" key={todo.id}>
+      <div><b>{todo.title}</b> <small>Priority: {todo.priority}</small></div>
+      <div><small>{todo.description}</small></div>
+    </div>
   );
 }
 
