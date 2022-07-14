@@ -10,7 +10,7 @@ import React from "react";
 
 function Todo({ todo }) {
   return (
-    <div className="Todo" key={todo.id}>
+    <div className="Todo" id={todo.id}>
       <div><b>{todo.title}</b> <small>Priority: {todo.priority}</small></div>
       <div><small>{todo.description}</small></div>
     </div>

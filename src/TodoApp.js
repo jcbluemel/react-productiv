@@ -18,13 +18,13 @@ import TodoForm from "./TodoForm";
 
 function TodoApp({ initialTodos }) {
   const [todos, setTodos] = useState(initialTodos);
-  console.log("TodoApp: todos=",todos);
+  // console.log("TodoApp: todos=",todos);
   /** add a new todo to list */
   function create(newTodo) {
-    console.log("Got to create. newTodo=",newTodo);
-    console.log('todos before=', todos);
-    setTodos(todos => [...todos, newTodo]);
-    console.log('todos after=', todos);
+    // console.log("Got to create. newTodo=",newTodo);
+    // console.log('todos before=', todos);
+    setTodos(todos => [...todos, {...newTodo, id: uuid()}]);
+    // console.log('todos after=', todos);
   }
 
   /** update a todo with updatedTodo */
