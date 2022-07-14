@@ -28,6 +28,7 @@ function TodoForm({ initialFormData, handleSave }) {
   /** Call parent function and clear form. */
   function handleSubmit(evt) {
     evt.preventDefault();
+    console.log("formData=", formData);
     handleSave({ ...formData, id: 5 });
     setFormData(initialFormData);
    }

@@ -28,7 +28,7 @@ function EditableTodo({ todo, update, remove }) {
 
       EITHER
 
-      <TodoForm />
+      <TodoForm initialFormData={todo} />
 
       OR
 
@@ -45,7 +45,7 @@ function EditableTodo({ todo, update, remove }) {
             Del
           </button>
         </div>
-        <Todo todo={todo}/>
+        <Todo todo={todo} />
       </div>
 
     </div>
