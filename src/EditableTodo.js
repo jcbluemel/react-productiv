@@ -14,6 +14,7 @@ import TodoForm from "./TodoForm";
 
 function EditableTodo({ todo, update, remove }) {
   const [showEditForm, setShowEditForm] = useState(false);
+
   /** Toggle if this is being edited */
   function toggleEdit() {
     setShowEditForm(!showEditForm);
@@ -21,7 +22,7 @@ function EditableTodo({ todo, update, remove }) {
 
   /** Call remove fn passed to this. */
   function handleDelete() {
-
+    remove(todo.id);
   }
 
   /** Edit form saved; toggle isEditing and update in ancestor. */
@@ -33,7 +34,10 @@ function EditableTodo({ todo, update, remove }) {
     <div className="EditableTodo">
 
       {showEditForm
-        ? <TodoForm initialFormData={todo} />
+        ? <TodoForm
+          initialFormData={todo}
+          handleSave={handleSave}
+          />
         : <div className="mb-3">
             <div className="float-end text-sm-end">
               <button
@@ -49,10 +53,7 @@ function EditableTodo({ todo, update, remove }) {
             </div>
            <Todo todo={todo} />
           </div>
-
       }
-
-
     </div>
   );
 }
