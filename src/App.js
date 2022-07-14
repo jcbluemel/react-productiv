@@ -20,7 +20,7 @@ function App() {
         </header>
 
         <section className="container mt-4">
-          <TodoApp initialTodos={[
+          {/* <TodoApp initialTodos={[
             {
               id: 1,
               title: "Code!",
@@ -39,8 +39,8 @@ function App() {
               description: "In bed by 11:15",
               priority: 3,
             },
-          ]} />
-
+          ]} /> */}
+          <TodoApp initialTodos={[]} />
           <Footer />
         </section>
       </main>
