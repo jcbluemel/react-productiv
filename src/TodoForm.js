@@ -32,7 +32,7 @@ function TodoForm({initialFormData=INITIAL_DATA, handleSave }) {
   function handleSubmit(evt) {
     evt.preventDefault();
     handleSave(formData);
-    setFormData(initialFormData);
+    setFormData(data => initialFormData);
   }
 
   return (
