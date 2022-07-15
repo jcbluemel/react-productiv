@@ -51,6 +51,7 @@ it("submitting form works", function () {
     expect(handleSaveMock).toHaveBeenCalledTimes(0);
     fireEvent.click(container.querySelector(".NewTodoForm-addBtn"));
     expect(handleSaveMock).toHaveBeenCalledTimes(1);
+    debug(container)
 
     expect(container.querySelectorAll('input[value=""]')).toHaveLength(1);
     expect(container.querySelector('textarea')).toHaveTextContent('');

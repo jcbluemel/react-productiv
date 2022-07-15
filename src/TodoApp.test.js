@@ -90,6 +90,7 @@ it("updates todo when edit form is submitted", function () {
 
     expect(container.querySelectorAll(".EditableTodo")).toHaveLength(1);
     expect(container).toContainHTML('<b>UpdatedTest</b>');
+    // TODO: Check if old title isn't there.
 });
 
 it("delete a todo when delete button clicked", function () {
