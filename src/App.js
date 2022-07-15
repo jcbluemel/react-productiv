@@ -40,7 +40,6 @@ function App() {
               priority: 3,
             },
           ]} />
-          {/* <TodoApp initialTodos={[]} /> */}
           <Footer />
         </section>
       </main>

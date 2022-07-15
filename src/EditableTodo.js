@@ -8,6 +8,9 @@ import TodoForm from "./TodoForm";
  * - todo
  * - update(): fn to call to update a todo
  * - remove(): fn to call to remove a todo
+ * 
+ * State:
+ *  -showEditForm
  *
  * EditableTodoList -> EditableTodo -> { Todo, TodoForm }
  */
@@ -17,6 +20,7 @@ function EditableTodo({ todo, update, remove }) {
 
   /** Toggle if this is being edited */
   function toggleEdit() {
+    //TODO: use arrow
     setShowEditForm(!showEditForm);
   }
 
@@ -27,7 +31,8 @@ function EditableTodo({ todo, update, remove }) {
 
   /** Edit form saved; toggle isEditing and update in ancestor. */
   function handleSave(formData) {
-
+    update(formData);
+    toggleEdit();
   }
 
   return (
@@ -56,6 +61,7 @@ function EditableTodo({ todo, update, remove }) {
       }
     </div>
   );
+  //TODO: ternary is long... maybe use function
 }
 
 export default EditableTodo;

@@ -18,17 +18,21 @@ import TodoForm from "./TodoForm";
 
 function TodoApp({ initialTodos }) {
   const [todos, setTodos] = useState(initialTodos);
-  // console.log("TodoApp: todos=",todos);
+
   /** add a new todo to list */
   function create(newTodo) {
-    // console.log("Got to create. newTodo=",newTodo);
-    // console.log('todos before=', todos);
-    setTodos(todos => [...todos, {...newTodo, id: uuid()}]);
-    // console.log('todos after=', todos);
+    setTodos(todos => [...todos, { ...newTodo, id: uuid() }]);
   }
 
   /** update a todo with updatedTodo */
   function update(updatedTodo) {
+    setTodos(todos.map(t => {
+      //TODO: ternary
+      if (t.id === updatedTodo.id) {
+        return updatedTodo;
+      }
+      return t;
+    }));
   }
 
   /** delete a todo by id */
@@ -43,10 +47,10 @@ function TodoApp({ initialTodos }) {
         <div className="col-md-6">
           {todos.length > 0
             ? <EditableTodoList
-                todos={todos}
-                update={update}
-                remove={remove}
-              />
+              todos={todos}
+              update={update}
+              remove={remove}
+            />
             : <span className="text-muted">You have no todos.</span>
           }
         </div>
@@ -68,6 +72,7 @@ function TodoApp({ initialTodos }) {
                   title: "",
                   description: "",
                   priority: 2
+                  //TODO: Can be a default
                 }
               }
               handleSave={create}
