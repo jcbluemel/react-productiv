@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 
-
+const INITIAL_DATA = {
+  title: "",
+  description: "",
+  priority: 2
+}
 /** Form for adding.
  *
  * Props:
@@ -12,13 +16,7 @@ import React, { useState } from "react";
  * { TodoApp, EditableTodo } -> TodoForm
  */
 
-function TodoForm({
-  initialFormData={
-    title: "",
-    description: "",
-    priority: 2
-  },
-  handleSave }) {
+function TodoForm({initialFormData=INITIAL_DATA, handleSave }) {
   const [formData, setFormData] = useState(initialFormData);
 
   /** Update form input. */
