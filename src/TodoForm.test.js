@@ -49,10 +49,9 @@ it("submitting form works", function () {
     fireEvent.input(priorityInput, { target: { value: 2 } });
 
     expect(handleSaveMock).toHaveBeenCalledTimes(0);
-
     fireEvent.click(container.querySelector(".NewTodoForm-addBtn"));
-    
     expect(handleSaveMock).toHaveBeenCalledTimes(1);
+
     expect(container.querySelectorAll('input[value=""]')).toHaveLength(1);
     expect(container.querySelector('textarea')).toHaveTextContent('');
 });
