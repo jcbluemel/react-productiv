@@ -8,7 +8,7 @@ import TodoForm from "./TodoForm";
  * - todo
  * - update(): fn to call to update a todo
  * - remove(): fn to call to remove a todo
- * 
+ *
  * State:
  *  -showEditForm
  *
@@ -20,8 +20,7 @@ function EditableTodo({ todo, update, remove }) {
 
   /** Toggle if this is being edited */
   function toggleEdit() {
-    //TODO: use arrow
-    setShowEditForm(!showEditForm);
+    setShowEditForm(showing => !showEditForm);
   }
 
   /** Call remove fn passed to this. */
@@ -35,6 +34,28 @@ function EditableTodo({ todo, update, remove }) {
     toggleEdit();
   }
 
+  /** Show todo with buttons for edit and del */
+  function editableTodo() {
+
+    return (
+      <div className="mb-3">
+        <div className="float-end text-sm-end">
+          <button
+            className="EditableTodo-toggle btn-link btn btn-sm"
+            onClick={toggleEdit}>
+            Edit
+          </button>
+          <button
+            className="EditableTodo-delBtn btn-link btn btn-sm text-danger"
+            onClick={handleDelete}>
+            Del
+          </button>
+        </div>
+      <Todo todo={todo} />
+      </div>
+    )
+  }
+
   return (
     <div className="EditableTodo">
 
@@ -43,25 +64,10 @@ function EditableTodo({ todo, update, remove }) {
           initialFormData={todo}
           handleSave={handleSave}
           />
-        : <div className="mb-3">
-            <div className="float-end text-sm-end">
-              <button
-                className="EditableTodo-toggle btn-link btn btn-sm"
-                onClick={toggleEdit}>
-                Edit
-              </button>
-              <button
-                className="EditableTodo-delBtn btn-link btn btn-sm text-danger"
-                onClick={handleDelete}>
-                Del
-              </button>
-            </div>
-           <Todo todo={todo} />
-          </div>
+        : editableTodo()
       }
     </div>
   );
-  //TODO: ternary is long... maybe use function
 }
 
 export default EditableTodo;

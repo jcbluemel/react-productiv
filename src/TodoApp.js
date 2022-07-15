@@ -27,11 +27,7 @@ function TodoApp({ initialTodos }) {
   /** update a todo with updatedTodo */
   function update(updatedTodo) {
     setTodos(todos.map(t => {
-      //TODO: ternary
-      if (t.id === updatedTodo.id) {
-        return updatedTodo;
-      }
-      return t;
+      return t.id === updatedTodo.id ? updatedTodo : t;
     }));
   }
 
@@ -67,14 +63,6 @@ function TodoApp({ initialTodos }) {
           <section>
             <h3 className="mb-3">Add Nü</h3>
             <TodoForm
-              initialFormData={
-                {
-                  title: "",
-                  description: "",
-                  priority: 2
-                  //TODO: Can be a default
-                }
-              }
               handleSave={create}
             />
           </section>

@@ -12,7 +12,13 @@ import React, { useState } from "react";
  * { TodoApp, EditableTodo } -> TodoForm
  */
 
-function TodoForm({ initialFormData, handleSave }) {
+function TodoForm({
+  initialFormData={
+    title: "",
+    description: "",
+    priority: 2
+  },
+  handleSave }) {
   const [formData, setFormData] = useState(initialFormData);
 
   /** Update form input. */
@@ -27,8 +33,7 @@ function TodoForm({ initialFormData, handleSave }) {
   /** Call parent function and clear form. */
   function handleSubmit(evt) {
     evt.preventDefault();
-    //TODO: Don't need to spread into new object
-    handleSave({ ...formData });
+    handleSave(formData);
     setFormData(initialFormData);
   }
 
