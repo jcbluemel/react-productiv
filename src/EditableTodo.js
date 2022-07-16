@@ -20,7 +20,7 @@ function EditableTodo({ todo, update, remove }) {
 
   /** Toggle if this is being edited */
   function toggleEdit() {
-    setShowEditForm(showing => !showEditForm);
+    setShowEditForm(showing => !showing);
   }
 
   /** Call remove fn passed to this. */
